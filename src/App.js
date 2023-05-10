@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Navigation from './components/Navigation/Navigation';
+import Sidebar from "./components/Sidebar/Sidebar";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Profile from './components/Profile/Profile';
 import News from "./components/News/News";
@@ -14,7 +14,7 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
-                <Navigation navigationData={props.appState.sidebar.navigation}/>
+                <Sidebar sidebarData={props.appState.sidebar}/>
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path="/profile" element={<Profile dataPosts={props.appState.profilePage.posts}/>}/>
