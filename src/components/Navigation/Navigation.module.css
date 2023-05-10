@@ -1,0 +1,24 @@
+.navigation {
+    padding: 40px;
+    grid-area: nav;
+    background-color: bisque;
+}
+
+.navigation ul{
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    list-style: none;
+    font-weight: bold;
+}
+
+.item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.item a.active {
+    color: blue;
+}

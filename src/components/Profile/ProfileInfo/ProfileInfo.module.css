@@ -1,0 +1,9 @@
+.descriptionBlock{
+    padding: 10px;
+}
+
+.profileInfo img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
