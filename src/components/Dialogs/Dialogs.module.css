@@ -12,10 +12,27 @@
     color: gold;
 }
 
+.dialog{
+    display: flex;
+    align-items: center;
+}
+
+.dialog:not(:last-child){
+    margin-bottom: 10px;
+}
+
 .messages{
     padding: 10px;
 }
 
 .messagesItem{
     color: white;
+}
+
+.img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
 }

@@ -1,0 +1,13 @@
+.item {
+    list-style: none;
+    font-weight: bold;
+}
+
+.item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.item a.active {
+    color: blue;
+}
