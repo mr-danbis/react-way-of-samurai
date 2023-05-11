@@ -6,12 +6,18 @@ const MyPosts = (props) => {
         return <Post message={post.message} like={post.likesCount} id={post.id} img={post.img}/>
     });
 
+    let newPostRef = React.createRef();
+    const addPost = () => {
+        let text = newPostRef.current.value;
+        alert(text);
+    }
+
     return (
         <div className={classes.postsBlock}>
             <h3>My post</h3>
             <div>
-                <input type="text"/>
-                <button>Submit</button>
+                <input type="text" ref={newPostRef}/>
+                <button onClick={addPost}>Add post</button>
             </div>
             <div className={classes.posts}>
                 {postsElements}
