@@ -10,7 +10,9 @@ const Friends = (props) => {
 
     return (
         <div>
-            Friends
+            <h1 className={classes.title}>
+                Friends
+            </h1>
             <div className={classes.friendsList}>
                 {friendsElement}
             </div>

@@ -5,30 +5,34 @@ import MessagesItem from "./MessagesItem/MessagesItem";
 
 const Dialogs = (props) => {
 
-    const DialogsElements = props.dataDialogs.map(dialog => {
+    const DialogsElements = props.messagesPage.dialogs.map(dialog => {
         return <DialogsItem name={dialog.name} id={dialog.id} img={dialog.img}/>
     });
 
-    const MessagesElements = props.dataMessages.map(message => {
+    const MessagesElements = props.messagesPage.messages.map(message => {
         return <MessagesItem message={message.message} id={message.id}/>
     });
 
     let messageElement = React.createRef();
     const sendMessage = () => {
+        alert(props.messagesPage.newMessagesText);
+        messageElement.current.value = '';
+    }
+    const onMessageChange = () => {
         let text = messageElement.current.value;
-        alert(text);
+        props.changeDialogsMessage(text);
     }
 
     return (
-        <div className={classes.dialogs}>
+        <div className={classes.dialogsWrapper}>
             <div className={classes.dialogsGroup}>
                 {DialogsElements}
             </div>
-            <div className={classes.messages}>
+            <div className={classes.messagesGroup}>
                 {MessagesElements}
             </div>
-            <div>
-                <input type="text" ref={messageElement}/>
+            <div className={classes.dialogsInput}>
+                <input type="text" onChange={onMessageChange} ref={messageElement}/>
                 <button onClick={sendMessage}>Send</button>
             </div>
         </div>

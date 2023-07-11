@@ -1,32 +1,44 @@
-.dialogs{
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+.dialogsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .dialogsGroup{
-    padding: 10px;
+    width: 30%;
 }
 
-.dialog a{
+.messagesGroup{
+    width: 68%;
+}
+
+.dialogItem{
+    display: flex;
+    align-items: center;
+    background-color: #6767c6;
+    padding: 15px;
+}
+
+.dialogItem:not(:last-child){
+    margin-bottom: 15px;
+}
+
+.dialogItem a{
     text-decoration: none;
     color: gold;
 }
 
-.dialog{
-    display: flex;
-    align-items: center;
-}
-
-.dialog:not(:last-child){
-    margin-bottom: 10px;
-}
-
-.messages{
-    padding: 10px;
-}
-
 .messagesItem{
     color: white;
+    background-color: cadetblue;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.messagesItem:not(:last-child){
+    margin-bottom: 15px;
 }
 
 .img{
@@ -35,4 +47,32 @@
     object-fit: cover;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+.dialogsInput{
+    margin-top: 40px;
+    display: flex;
+    position: relative;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dialogsInput input {
+    padding: 15px 115px 15px 15px;
+    width: 100%;
+    background-color: #6767c6;
+    border: none;
+    color: #fff;
+}
+
+.dialogsInput button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: blue;
+    height: 100%;
+    color: #fff;
+    width: 100px;
 }

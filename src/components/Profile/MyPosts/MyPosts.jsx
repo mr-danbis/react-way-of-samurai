@@ -8,15 +8,19 @@ const MyPosts = (props) => {
 
     let newPostRef = React.createRef();
     const addPost = () => {
+        props.addPost();
+    }
+
+    const onPostChange = () => {
         let text = newPostRef.current.value;
-        alert(text);
+        props.changeProfileMessage(text);
     }
 
     return (
         <div className={classes.postsBlock}>
-            <h3>My post</h3>
-            <div>
-                <input type="text" ref={newPostRef}/>
+            <h3 className={classes.title}>My post</h3>
+            <div className={classes.postInput}>
+                <input type="text" onChange={onPostChange} ref={newPostRef} value={props.newPostText}/>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div className={classes.posts}>

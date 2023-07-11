@@ -2,9 +2,19 @@
     margin-right: 15px;
 }
 
+.item {
+    background-color: cadetblue;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .img{
     height: 50px;
     width: 50px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 10px;
 }

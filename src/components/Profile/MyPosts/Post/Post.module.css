@@ -1,10 +1,26 @@
 .post {
     color: white;
+    width: fit-content;
+    background-color: #00ffff70;
+    padding: 10px;
+    border-radius: 10px;
 }
+
+.post:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.postTop{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 
 .post img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
 }

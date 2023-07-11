@@ -9,7 +9,7 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
 
-const App = (props) => {
+const   App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -17,8 +17,8 @@ const App = (props) => {
                 <Sidebar sidebarData={props.appState.sidebar}/>
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path="/profile" element={<Profile dataPosts={props.appState.profilePage.posts}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs dataDialogs={props.appState.messagesPage.dialogs} dataMessages={props.appState.messagesPage.messages}/>}/>
+                        <Route path="/profile" element={<Profile profilePage={props.appState.profilePage} addPost={props.addPost} changeProfileMessage={props.changeProfileMessage}/>}/>
+                        <Route path="/dialogs/*" element={<Dialogs messagesPage={props.appState.messagesPage} changeDialogsMessage={props.changeDialogsMessage}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>

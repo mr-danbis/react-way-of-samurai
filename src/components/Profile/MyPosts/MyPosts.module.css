@@ -2,6 +2,38 @@
     padding: 10px;
 }
 
+.title{
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
 .posts{
     margin-top: 15px;
+}
+
+.postInput{
+    display: flex;
+    position: relative;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.postInput input {
+    padding: 15px 115px 15px 15px;
+    width: 100%;
+    background-color: #6767c6;
+    border: none;
+    color: #fff;
+}
+
+.postInput button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: blue;
+    height: 100%;
+    color: #fff;
+    width: 100px;
 }
