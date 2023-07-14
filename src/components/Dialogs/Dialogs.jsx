@@ -20,7 +20,7 @@ const Dialogs = (props) => {
     }
     const onMessageChange = () => {
         let text = messageElement.current.value;
-        props.changeDialogsMessage(text);
+        props.dispatch({type: 'CHANGE-DIALOG-MESSAGE', newText: text});
     }
 
     return (

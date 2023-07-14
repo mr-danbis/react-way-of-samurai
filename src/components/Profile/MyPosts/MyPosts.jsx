@@ -8,12 +8,12 @@ const MyPosts = (props) => {
 
     let newPostRef = React.createRef();
     const addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
 
     const onPostChange = () => {
         let text = newPostRef.current.value;
-        props.changeProfileMessage(text);
+        props.dispatch({type: 'CHANGE-PROFILE-MESSAGE', newText: text});
     }
 
     return (

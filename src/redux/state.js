@@ -9,7 +9,6 @@ let store = {
             ],
             newPostText: '',
         },
-
         messagesPage: {
             dialogs: [
                 {id: 1, name: 'Даник', img: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg'},
@@ -24,7 +23,6 @@ let store = {
             ],
             newMessagesText: '',
         },
-
         sidebar: {
             navigation : [
                 {link: '/profile', text: 'Profile'},
@@ -39,34 +37,33 @@ let store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('state changed')
     },
-    addPost () {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 49,
-            img: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    changeProfileMessage (postMessage) {
-        this._state.profilePage.newPostText = postMessage;
-        this._callSubscriber(this._state);
-    },
-    changeDialogsMessage (postMessage) {
-        this._state.messagesPage.newMessagesText = postMessage;
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
     },
     subscribe (observer) {
         this._callSubscriber = observer;
     },
-
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 49,
+                img: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === "CHANGE-PROFILE-MESSAGE") {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === "CHANGE-DIALOG-MESSAGE") {
+            this._state.messagesPage.newMessagesText = action.newText;
+            this._callSubscriber(this._state);
+        }
+    }
 }
 export default store;
