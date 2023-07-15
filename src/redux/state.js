@@ -1,8 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_PROFILE_MESSAGE = 'CHANGE-PROFILE-MESSAGE';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const CHANGE_DIALOG_MESSAGE = 'CHANGE-DIALOG-MESSAGE';
-
+import profileReducer from "./profile-reducer";
+import messagesReducer from "./messages-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
     _state : {
@@ -51,36 +49,10 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likesCount: 49,
-                img: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === CHANGE_PROFILE_MESSAGE) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.messagesPage.newMessagesText,
-            };
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newMessagesText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === CHANGE_DIALOG_MESSAGE) {
-            this._state.messagesPage.newMessagesText = action.newText;
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._callSubscriber(this._state);
     }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const changeProfileMessageActionCreator = (text) => ({type: CHANGE_PROFILE_MESSAGE, newText: text});
-export const addMessageCreator = () => ({type: ADD_MESSAGE});
-export const changeDialogMessageActionCreator = (text) => ({type: CHANGE_DIALOG_MESSAGE, newText: text});
 export default store;
