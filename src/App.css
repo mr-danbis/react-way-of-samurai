@@ -9,12 +9,19 @@
     grid-template-columns: 2fr 10fr;
     width: 100vw;
     margin: 0 auto;
+    height: 100vh;
 }
 
 .app-wrapper-content{
     grid-area: content;
     background-color: blueviolet;
 }
+
+.pageTitle{
+    font-size: 10rem;
+    text-align: center;
+}
+
 
 html{
     box-sizing: border-box;

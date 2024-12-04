@@ -9,7 +9,7 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
 
-const   App = (props) => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>

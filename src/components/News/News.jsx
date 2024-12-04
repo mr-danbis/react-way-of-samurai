@@ -1,9 +1,10 @@
 import React from 'react';
+import './../../App.css';
 import classes from './News.module.css';
 
 const News = () => {
     return (
-        <div>
+        <div className='pageTitle'>
             News
         </div>
     )
